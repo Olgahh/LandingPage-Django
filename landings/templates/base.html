@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>{{organization.name}}</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@1,700&display=swap" rel="stylesheet">
+  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+    <style>
+        body{
+            background-color: #103551;
+            color:#F0B400;
+            font-family: 'Noto Serif', serif;
+        }
+        a{
+            color: white;
+        }
+        .card{
+            background-color: #103551;
+            color:#F0B400;
+            border: #F0B400;
+        }
+        .navbar{
+            margin: 10px;
+            font-size: 1.5em;
+            background-color: #103551;
+            color:#F0B400;
+        }
+        .jumbotron{
+            background-color: #103551;
+            color:#F0B400;
+            width: 100%;
+        }
+        .btn{
+            background-color:#F0B400;
+            color: white;
+        }
+        hr{
+            background-color:#F0B400;
+        }
+
+    </style>
+  </head>
+
+  <body>
+      
+    {% include "navbar.html" %}
+    {% include "messages.html" %}
+
+    {% block content %}
+
+    {% endblock %}
+    <footer class="footer py-5">
+      <div class="container">
+        <p class="m-0 text-center text-white small">Copyright &copy;{{organization.name}}</p>
+      </div>
+    </footer>
+  
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

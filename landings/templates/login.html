@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<header class="masthead text-center text-white">
+  <div class="masthead-content">
+    <div class="container">
+        <div class="jumbotron">
+        
+            <h2 class="masthead-subheading mb-4">Log In</h2>
+            <form action="{% url 'login' %}" method="POST">
+              {% csrf_token %}
+              {{form|crispy}}
+              <input class = "btn  btn-xl rounded-pill mt-5" type="submit" value="Login">
+           
+            </form>
+            <p class="my-2">OR</p>
+            <p class="my-2">
+            <a href="{% url 'signup' %}">Sign Up</a></p>
+      </div>
+    </div>
+  </div>
+</header>
+{% endblock %}

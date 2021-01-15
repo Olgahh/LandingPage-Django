@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+<div class="mx-2">
+    <div class="row">
+      <div class="col-9">
+        <div class="jumbotron">
+            {% if organization.basic_information.title %}
+            <h1 class="display-4">{{organization.basic_information.title}}</h1>
+            {% else %}
+            <h1 class="display-4">Insert Your Organization Title Here</h1>
+            {% endif %}
+            {% if organization.basic_information.about %}
+            <p class="lead">{{organization.basic_information.about}}</p>
+            {% else %}
+            <p class="lead">Insert Your About Here</p>
+            {% endif %}
+            <hr class="mt-5 mb-3">
+            <p class="d-flex justify-content-center ">
+              <a class="btn  btn-lg mr-5" href="{% url 'signup'%}" role="button">Register Now Free</a>
+              <a class="btn  btn-lg" href="#" role="button">Learn more</a>
+            </p>
+          </div>
+      </div>
+      <div class="col-3">
+          <div class="d-flex align-items-center my-0">
+              {% if organization.logo %}
+              <img src={{organization.logo}} class="img-fluid rounded" alt="Responsive image">
+              {% else %}
+              <img src="{% static '../static/logo.jpg' %}" class="img-fluid rounded" alt="Responsive image">
+              {% endif %}
+            </div>
+        </div>
+    </div>
+
+        <div class="row mb-5">
+         {% if organization.basic_information.details.image %}
+         <img src={{organization.basic_information.details.image}} class="img-fluid" alt="Responsive image">
+         {% else %}
+         <img src="{% static '../static/1.jpg' %}" class="img-fluid" width= "100%" alt="Responsive image">
+         {% endif %}
+        </div>
+        <div class="row mx-2">
+            {% if details %}
+            {% for detail in details %}
+              <div class="col">
+                  {% if detail.subtitle %}
+                  {{ detail.subtitle }}
+                  {% endif %}
+                {% if detail.text.text %}
+             <p>{{ detail.text.text }}</p>
+             {% endif %}
+          </div>
+          {% endfor %}
+         
+          {% else %}
+          <div class="col">
+           Subtitle 1
+           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+          </div>
+          <div class="col">
+            Subtitle 2
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+          </div>
+          <div class="col">
+           Subtitle 3
+           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+          </div>
+          {% endif %}
+        </div>
+ <hr class= "mx-5"/>
+ {% if organization.basic_information.location %}
+        <div class="card my-3">
+            <div class=" text-center">
+              <h3 class="display-5">Contact Us</h3>
+            </div>
+            <div class="card-body text-center">
+              <p class="card-text">Location: {{organization.basic_information.location}}</p>
+              <p class="card-text">Call us: {{organization.basic_information.phone_number}}</p>
+
+              <a href="{% url 'signup' %}" class="btn ">Register</a>
+            </div>
+            <hr/>
+          </div>
+          {% else %}
+          <div class="card my-3">
+            <div class=" text-center">
+              <h3 class="display-5">Contact Us</h3>
+            </div>
+            <div class="card-body text-center">
+              <p class="card-text">Location: Insert Location Here</p>
+              <p class="card-text">Call us: 000-000-000-000</p>
+
+              <a href="{% url 'signup' %}" class="btn ">Register</a>
+            </div>
+            <hr class= "mx-5"/>
+          </div>
+          {% endif %}
+
+</div>
+
+{% endblock %}

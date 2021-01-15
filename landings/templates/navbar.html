@@ -1,0 +1,9 @@
+<nav class="navbar ">
+    <div class="container-fluid">
+        {% if organization.name %}
+      <span class="navbar-brand mb-0 h1">{{organization.name}}</span>
+      {% else %}
+      <span class="navbar-brand mb-0 h1">Organization Name</span>
+      {% endif %}
+    </div>
+</nav>
